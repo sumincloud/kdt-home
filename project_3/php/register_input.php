@@ -13,22 +13,22 @@
   $mb_job = trim($_POST['mb_job']); //직업
 
   //현지 지역 시간으로 다시 설정
-  date_default_timezone_get('Asia/Seoul');
+  date_default_timezone_set('Asia/Seoul');
   $mb_datetime = date('Y-m-d H:i:s', time());
 
   //패스워드 암호화
   $mb_password_hash = password_hash($mb_password, PASSWORD_DEFAULT);
 
   //값 출력하기
-  // echo "아이디 : $mb_id<br>";
-  // echo "패스워드 : $mb_password<br>";
-  // echo "이름 : $mb_name<br>";
-  // echo "전화번호 : $mb_tel<br>";
-  // echo "이메일주소 : $mb_email<br>";
-  // echo "현시간 : $mb_datetime<br>";
-  // echo "관심사 : $mb_hobby<br>";
-  // echo "직업 : $mb_job<br>";
-  // echo "출력완료";
+  echo "아이디 : $mb_id<br>";
+  echo "패스워드 : $mb_password<br>";
+  echo "이름 : $mb_name<br>";
+  echo "전화번호 : $mb_tel<br>";
+  echo "이메일주소 : $mb_email<br>";
+  echo "현시간 : $mb_datetime<br>";
+  echo "관심사 : $mb_hobby<br>";
+  echo "직업 : $mb_job<br>";
+  echo "출력완료";
 
 
   //db에 데이터 입력하기
