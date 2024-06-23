@@ -19,6 +19,9 @@
   <!-- 제이쿼리 -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+  <!-- 자바스크립트 쿠키파일 연결 -->
+  <script src="../script/javascript_cookie.js"></script>
+
   <style>
     /* 로그인페이지 서식 */
     #login_box{
@@ -63,13 +66,15 @@
           <div class="small text-secondary mb-4">로그인이 필요한 서비스에요</div>
         </div>
         <div class="login_form">
-          <form action="#" id="loginForm" name="loginForm" method="post" class="needs-validation" novalidate>
+          <form action="./login_check.php" id="loginForm" name="loginForm" method="post" class="needs-validation" novalidate>
             <div class="fs-4 mb-2">
               <label for="mb_id" class="form-label fw-bold fs-6">아이디</label>
               <input type="text" class="form-control" name="mb_id" id="mb_id" placeholder="아이디를 입력해주세요" required>
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
               </div>
+              <input type="checkbox" id="id_save" name="id_save" class="form-check-input">
+              <label for="id_save" class="form-check-label fs-6">아이디 저장</label>
             </div>
             <div class="fs-4 mb-4">
               <label for="mb_password" class="form-label fw-bold fs-6">비밀번호</label>
@@ -121,6 +126,9 @@
 
   <!-- 공통 바텀바삽입 -->
   <?php include('./bottom.php')?>
+
+
+
   <script>
     $(document).ready(function() {
       //해당 페이지에 해당하는 하단 바텀바에 버튼색 생기게
@@ -132,33 +140,68 @@
       $('#login').click(function(e) {
         // 폼의 기본 동작인 submit을 막음
         e.preventDefault();
-        validateCheck();
+        //validateCheck();
+        if (validateCheck()) {
+          $('#loginForm').submit();
+        }
       });
       $('input').keyup(function() {
         // input에 입력할때마다 함수체크
         validateCheck();
       });
 
-
-
       //로그인 빈칸 유효성 검사
       function validateCheck() {
 
         const id = $('#mb_id').val();
         const password = $('#mb_password').val();
+        let isValid = true;
 
         if (id === '') {
           $('#mb_id').addClass('is-invalid');
+          isValid = false;
         } else {
           $('#mb_id').removeClass('is-invalid');
         }
 
         if (password === '') {
           $('#mb_password').addClass('is-invalid');
+          isValid = false;
         } else {
           $('#mb_password').removeClass('is-invalid');
         }
+        return isValid;
       }
+
+      //--------아이디 저장하는 쿠키 함수----------
+      let key = getCookie('idCookie'); //쿠키이름 저장
+
+      if(key!=""){ //만약에 key값이 있다면
+        $('#mb_id').val(key); //id값을 저장
+      }
+
+      if($('#mb_id').val() !=""){ //만약에 id값이 있다면
+        $('#id_save').attr('checked',true); //체크박스에 체크를 해준다.
+      }
+
+      $('#id_save').change(function(){ //체크박스의 상태가 바뀌면 아래내용 실행
+        if($('#id_save').is(':checked')){ //체크박스에 체크가 된 경우라면
+          setCookie('idCookie', $('#mb_id').val(), 7); //쿠키를 생성하고
+        }else{ //그렇지 않으면
+          deleteCookie('idCookie'); //쿠키를 삭제한다.
+        }
+      })
+      
+      $('#mb_id').keyup(function(){ //아이디 입력창에 키를 눌렀을 경우
+        if($('#id_save').is(':checked')){ //체크박스에 체크가 된 경우라면
+          setCookie('idCookie', $('#mb_id').val(), 7); //쿠키를 생성한다.
+        }
+      })
+
+
+
+
+
 
     });
 

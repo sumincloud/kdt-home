@@ -64,7 +64,7 @@
     }
   </style>
 
-  <footer>
+
     <!-- 하단 바텀바 -->
     <nav id="bottom">
       <ul>
@@ -104,4 +104,4 @@
         </li>
       </ul>
     </nav>
-  </footer>
+

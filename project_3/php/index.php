@@ -24,6 +24,19 @@
   <script src="../script/main.js"></script>
 </head>
 <body>
+  <?php
+  // 세션 시작
+  session_start();
+
+  // 사용자가 로그인한 경우, mb_name을 세션에서 가져옴
+  if (isset($_SESSION['ss_mb_name'])) {
+    $mb_name = $_SESSION['ss_mb_name'];
+  } else {
+    $mb_name = null;
+  }
+  ?>
+
+
   <!-- 공통헤더삽입 -->
   <?php include('./header.php')?>
 
@@ -65,59 +78,59 @@
         <span class="input-group-text" style="background: #fff; border-radius: 30px 0 0 30px;">
           <i class="bi bi-search"></i>
         </span>
-        <input type="text" class="form-control" aria-label="검색창" placeholder="구름이랑 어디로 떠날까?" style="border-left: none; border-radius: 0 30px 30px 0;">
+        <input type="text" id="main_search" class="form-control" aria-label="검색창" placeholder="반려견이랑 어디로 떠날까?" style="border-left: none; border-radius: 0 30px 30px 0;">
       </div>
     </section>
 
     <!-- 2. 카테고리 -->
     <section class="padding">
       <div class="d-flex justify-content-between mt-5 mb-4">
-        <h2 class="fw-bold fs-5 m-0">카테고리</h2>
-        <a href="#" title="카테고리 전체보기" style="color: var(--main_color);">+ 전체보기</a>
+        <h2 class="fw-bold">카테고리</h2>
+        <a href="#" title="카테고리 전체보기" style="color: var(--main_color); line-height: 32px;">+ 전체보기</a>
       </div>
       <div>
         <div class="d-flex justify-content-between mb-2">
           <div class="text-center categori" role="button">
             <img alt="" src="../images/icon_seoul.png" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">서울</p>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">서울</p>
           </div>
           <div class="text-center categori" role="button">
             <img alt="" src="../images/icon_jeju.png" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">제주</p>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">제주</p>
           </div>
           <div class="text-center categori" role="button">
             <img alt="" src="../images/icon_busan.png" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">부산</p>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">부산</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">서울</p>
+            <img alt="" src="../images/강릉 아이콘.png" width="50px"/>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">강릉</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">서울</p>
+            <img alt="" src="../images/인천 아이콘.png" width="50px"/>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">인천</p>
           </div>
         </div>
         <div class="d-flex justify-content-between mb-2">
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">서울</p>
+            <img alt="" src="../images/경주 아이콘.png" width="50px"/>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">경주</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">서울</p>
+            <img alt="" src="../images/가평 아이콘.png" width="50px"/>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">가평</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">서울</p>
+            <img alt="" src="../images/여수 아이콘.png" width="50px"/>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">여수</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">서울</p>
+            <img alt="" src="../images/이벤트 아이콘.png" width="50px"/>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">이벤트</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
-            <p class="fw-bold mt-1" style="font-size: 14px;">서울</p>
+            <img alt="" src="../images/쿠폰 아이콘.png" width="50px"/>
+            <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">쿠폰</p>
           </div>
         </div>
 
@@ -127,8 +140,12 @@
     <!-- 3. 딱 맞는 여행지 -->
     <section style="padding-left: 6%;">
       <div class="d-flex justify-content-between mt-5 mb-4" style="padding-right: 6%;">
-        <h2 class="fw-bold fs-5 m-0">
-          <span style="color:var(--main_color)">구름이</span>에게 딱 맞는 여행지예요 🏝️</h2>
+        <h2 class="fw-bold">
+        <?php if (!empty($mb_name)) : ?>
+          <span style="color:var(--main_color)"><?php echo $mb_name; ?></span>에게 딱 맞는 여행지예요 🏝️</h2>
+        <?php else : ?>
+          <span style="color:var(--main_color)">반려견</span>에게 딱 맞는 여행지예요 🏝️</h2>
+        <?php endif; ?>
         <a href="#" title="추천여행지 전체보기" style="color: #aaa; width: 40px; text-align: center;">
           <i class="bi bi-chevron-right fs-4"></i>
         </a>
@@ -143,8 +160,8 @@
             <div style="padding: 10px 5px;">
               <div class="d-flex justify-content-between mb-1">
                 <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
-                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
-                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
                   <span>4.8</span>
                 </div>
               </div>
@@ -152,7 +169,7 @@
               <span class="title_txt">
                 <i class="bi bi-geo-alt-fill"></i>
                 부산 해운대구 
-                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+                <span style="opacity: 0.6; font-weight: normal;">/ 1박추천</span>
               </span>
             </div>
           </div>
@@ -163,8 +180,8 @@
             <div style="padding: 10px 5px;">
               <div class="d-flex justify-content-between mb-1">
                 <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
-                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
-                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
                   <span>4.8</span>
                 </div>
               </div>
@@ -172,7 +189,7 @@
               <span class="title_txt">
                 <i class="bi bi-geo-alt-fill"></i>
                 부산 해운대구 
-                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+                <span style="opacity: 0.6; font-weight: normal;">/ 1박추천</span>
               </span>
             </div>
           </div>
@@ -183,8 +200,8 @@
             <div style="padding: 10px 5px;">
               <div class="d-flex justify-content-between mb-1">
                 <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
-                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
-                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
                   <span>4.8</span>
                 </div>
               </div>
@@ -192,7 +209,7 @@
               <span class="title_txt">
                 <i class="bi bi-geo-alt-fill"></i>
                 부산 해운대구 
-                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+                <span style="opacity: 0.6; font-weight: normal;">/ 1박추천</span>
               </span>
             </div>
           </div>
@@ -203,8 +220,8 @@
             <div style="padding: 10px 5px;">
               <div class="d-flex justify-content-between mb-1">
                 <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
-                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
-                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
                   <span>4.8</span>
                 </div>
               </div>
@@ -212,7 +229,7 @@
               <span class="title_txt">
                 <i class="bi bi-geo-alt-fill"></i>
                 부산 해운대구 
-                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+                <span style="opacity: 0.6; font-weight: normal;">/ 1박추천</span>
               </span>
             </div>
           </div>
@@ -223,8 +240,8 @@
             <div style="padding: 10px 5px;">
               <div class="d-flex justify-content-between mb-1">
                 <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
-                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
-                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
                   <span>4.8</span>
                 </div>
               </div>
@@ -232,7 +249,7 @@
               <span class="title_txt">
                 <i class="bi bi-geo-alt-fill"></i>
                 부산 해운대구 
-                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+                <span style="opacity: 0.6; font-weight: normal;">/ 1박추천</span>
               </span>
             </div>
           </div>
@@ -243,8 +260,8 @@
             <div style="padding: 10px 5px;">
               <div class="d-flex justify-content-between mb-1">
                 <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
-                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
-                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
                   <span>4.8</span>
                 </div>
               </div>
@@ -252,31 +269,10 @@
               <span class="title_txt">
                 <i class="bi bi-geo-alt-fill"></i>
                 부산 해운대구 
-                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+                <span style="opacity: 0.6; font-weight: normal;">/ 1박추천</span>
               </span>
             </div>
           </div>
-          <div class="swiper-slide recommend">
-            <div>
-              <img src="../images/busan_01.jpg" alt="이미지">
-            </div>
-            <div style="padding: 10px 5px;">
-              <div class="d-flex justify-content-between mb-1">
-                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
-                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
-                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
-                  <span>4.8</span>
-                </div>
-              </div>
-              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
-              <span class="title_txt">
-                <i class="bi bi-geo-alt-fill"></i>
-                부산 해운대구 
-                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
-              </span>
-            </div>
-          </div>
-
         </div>
       </div>
     
@@ -285,7 +281,7 @@
     <!-- 4. 여행 메이트 구해요 -->
     <section class="padding">
       <div class="d-flex justify-content-between mt-5 mb-4">
-        <h2 class="fw-bold fs-5 m-0">
+        <h2 class="fw-bold">
           여행 메이트 구해요 🐾</h2>
         <a href="#" title="여행메이트 전체보기" style="color: #aaa; width: 40px; text-align: center;">
           <i class="bi bi-chevron-right fs-4"></i>
@@ -293,8 +289,8 @@
       </div>
 
       <div class="container" style="margin: 0;padding: 0; max-width: inherit;">
-        <div class="row">
-          <div class="col-6 col-lg-3 mb-4">
+        <div class="row m-0">
+          <div class="col-6 col-lg-3 mb-3">
             <div class="card">
               <img src="../images/find_deabu_01.jpg" alt="">
               <div class="card-top">
@@ -302,11 +298,11 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
-                <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
+                <p class="card-text">: 으르렁파크 호캉스</p>
               </div>
             </div>
           </div>
-          <div class="col-6 col-lg-3 mb-4">
+          <div class="col-6 col-lg-3 mb-3">
             <div class="card">
               <img src="../images/find_gongju_01.jpg" alt="">
               <div class="card-top">
@@ -314,11 +310,11 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">공주에서 제대로 '쉼'</h4>
-                <p class="card-text">: 도심을 벗어나 자연속으로</p>
+                <p class="card-text">: 자연속으로 떠나개</p>
               </div>
             </div>
           </div>
-          <div class="col-6 col-lg-3 mb-4">
+          <div class="col-6 col-lg-3 mb-3">
             <div class="card">
               <img src="../images/find_deabu_01.jpg" alt="">
               <div class="card-top">
@@ -326,11 +322,11 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
-                <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
+                <p class="card-text">: 으르렁파크 호캉스</p>
               </div>
             </div>
           </div>
-          <div class="col-6 col-lg-3 mb-4">
+          <div class="col-6 col-lg-3 mb-3">
             <div class="card">
               <img src="../images/find_deabu_01.jpg" alt="">
               <div class="card-top">
@@ -338,7 +334,7 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
-                <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
+                <p class="card-text">: 으르렁파크 호캉스</p>
               </div>
             </div>
           </div>
@@ -355,17 +351,17 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="ad">
-              <img src="https://dummyimage.com/400x150" alt="광고배너">
+              <img src="../images/제휴배너 이미지_1.jpeg" alt="광고배너">
             </div>
           </div>
           <div class="swiper-slide">
             <div class="ad">
-              <img src="https://dummyimage.com/400x150" alt="광고배너">
+              <img src="../images/제휴배너 이미지_2.jpeg" alt="광고배너">
             </div>
           </div>
           <div class="swiper-slide">
             <div class="ad">
-              <img src="https://dummyimage.com/400x150" alt="광고배너">
+              <img src="../images/제휴배너 이미지_3.jpeg" alt="광고배너">
             </div>
           </div>
         </div>
@@ -377,7 +373,7 @@
     <!-- 6. 이달의 인기여행 테마 -->
     <section id="sec06">
       <div class="d-flex justify-content-between mb-4 padding pt-5 pb-2">
-        <h2 class="fw-bold fs-5 m-0">
+        <h2 class="fw-bold">
           이 달의 인기 여행 테마 🏆</h2>
         <a href="#" title="인기여행테마 전체보기" style="color: #aaa; width: 40px; text-align: center;">
           <i class="bi bi-chevron-right fs-4"></i>
@@ -389,6 +385,15 @@
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/10/1000/600" alt="썸네일 이미지">
+                <div class="card-body">
+                  <p class="card-text d-inline">자연에서 쉬고 싶은 댕댕이</p>
+                  <h4 class="card-title fs-6 fw-bold">자연힐링 테마여행 베스트 모음집</h4>
+                  <div class="mt-3">
+                    <span class="hash_btn">#서울전체</span>
+                    <span class="hash_btn">#전시회</span>
+                    <span class="hash_btn">#카페</span>
+                  </div>
+                </div>
               </span>
               <div class="flag d-inline">
                 <svg width="26" height="33" fill="none">
@@ -400,6 +405,15 @@
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/20/1000/600" alt="썸네일 이미지">
+                <div class="card-body">
+                  <p class="card-text d-inline">자연에서 쉬고 싶은 댕댕이</p>
+                  <h4 class="card-title fs-6 fw-bold">자연힐링 테마여행 베스트 모음집</h4>
+                  <div class="mt-3">
+                    <span class="hash_btn">#서울전체</span>
+                    <span class="hash_btn">#전시회</span>
+                    <span class="hash_btn">#카페</span>
+                  </div>
+                </div>
               </span>
               <div class="flag d-inline">
                 <svg width="26" height="33" fill="none">
@@ -411,6 +425,15 @@
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/30/1000/600" alt="썸네일 이미지">
+                <div class="card-body">
+                  <p class="card-text d-inline">자연에서 쉬고 싶은 댕댕이</p>
+                  <h4 class="card-title fs-6 fw-bold">자연힐링 테마여행 베스트 모음집</h4>
+                  <div class="mt-3">
+                    <span class="hash_btn">#서울전체</span>
+                    <span class="hash_btn">#전시회</span>
+                    <span class="hash_btn">#카페</span>
+                  </div>
+                </div>
               </span>
               <div class="flag d-inline">
                 <svg width="26" height="33" fill="none">
@@ -422,6 +445,15 @@
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/40/1000/600" alt="썸네일 이미지">
+                <div class="card-body">
+                  <p class="card-text d-inline">자연에서 쉬고 싶은 댕댕이</p>
+                  <h4 class="card-title fs-6 fw-bold">자연힐링 테마여행 베스트 모음집</h4>
+                  <div class="mt-3">
+                    <span class="hash_btn">#서울전체</span>
+                    <span class="hash_btn">#전시회</span>
+                    <span class="hash_btn">#카페</span>
+                  </div>
+                </div>
               </span>
               <div class="flag d-inline">
                 <svg width="26" height="33" fill="none">
@@ -433,6 +465,15 @@
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/50/1000/600" alt="썸네일 이미지">
+                <div class="card-body">
+                  <p class="card-text d-inline">자연에서 쉬고 싶은 댕댕이</p>
+                  <h4 class="card-title fs-6 fw-bold">자연힐링 테마여행 베스트 모음집</h4>
+                  <div class="mt-3">
+                    <span class="hash_btn">#서울전체</span>
+                    <span class="hash_btn">#전시회</span>
+                    <span class="hash_btn">#카페</span>
+                  </div>
+                </div>
               </span>
               <div class="flag d-inline">
                 <svg width="26" height="33" fill="none">
@@ -444,6 +485,15 @@
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/60/1000/600" alt="썸네일 이미지">
+                <div class="card-body">
+                  <p class="card-text d-inline">자연에서 쉬고 싶은 댕댕이</p>
+                  <h4 class="card-title fs-6 fw-bold">자연힐링 테마여행 베스트 모음집</h4>
+                  <div class="mt-3">
+                    <span class="hash_btn">#서울전체</span>
+                    <span class="hash_btn">#전시회</span>
+                    <span class="hash_btn">#카페</span>
+                  </div>
+                </div>
               </span>
               <div class="flag d-inline">
                 <svg width="26" height="33" fill="none">
@@ -458,21 +508,437 @@
       </div>
     </section>
 
-    <!-- 공백 -->
-    <section style="height:500px;"></section>
+    <!-- 7. 베스트 이용리뷰 -->
+    <section class="padding">
+      <div class="d-flex justify-content-between mt-5 mb-4">
+        <h2 class="fw-bold">
+          베스트 이용 리뷰 🏅</h2>
+        <a href="#" title="이용 리뷰 전체보기" style="color: #aaa; width: 40px; text-align: center;">
+          <i class="bi bi-chevron-right fs-4"></i>
+        </a>
+      </div>
+      <div>
+        <div id="review">
+          <div>
+            <img src="../images/busan_01.jpg" alt="이미지">
+          </div>
+          <div style="padding: 10px 10px;">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+              <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 100px; display: flex; align-items: flex-start; white-space: nowrap;">
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+              </div>
+            </div>
+            <p class="sub_txt mb-1">
+            안녕하세요~ 처음으로 떠나개를 이용해보고 너무 마음에 들어서 후기 남깁니다! 
+            우선 숙소부터 교통까지 한 번에 알아서 되어있는게 너무 마음에 처음으로 떠나개를 이용해보고 너무 마음에 들어서 후기 남깁니다! 
+            우선 숙소부터 교통까지 한 번에 알아서 되어있는게 너무 마음에
+            </p>
+          </div>
+        </div>
+        <div id="review">
+          <div>
+            <img src="../images/busan_01.jpg" alt="이미지">
+          </div>
+          <div style="padding: 10px 10px;">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+              <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 100px; display: flex; align-items: flex-start; white-space: nowrap;">
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+              </div>
+            </div>
+            <p class="sub_txt mb-1">
+            안녕하세요~ 처음으로 떠나개를 이용해보고 너무 마음에 들어서 후기 남깁니다! 
+            우선 숙소부터 교통까지 한 번에 알아서 되어있는게 너무 마음에 처음으로 떠나개를 이용해보고 너무 마음에 들어서 후기 남깁니다! 
+            우선 숙소부터 교통까지 한 번에 알아서 되어있는게 너무 마음에
+            </p>
+          </div>
+        </div>
+        <div id="review">
+          <div>
+            <img src="../images/busan_01.jpg" alt="이미지">
+          </div>
+          <div style="padding: 10px 10px;">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+              <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 100px; display: flex; align-items: flex-start; white-space: nowrap;">
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+              </div>
+            </div>
+            <p class="sub_txt mb-1">
+            안녕하세요~ 처음으로 떠나개를 이용해보고 너무 마음에 들어서 후기 남깁니다! 
+            우선 숙소부터 교통까지 한 번에 알아서 되어있는게 너무 마음에 처음으로 떠나개를 이용해보고 너무 마음에 들어서 후기 남깁니다! 
+            우선 숙소부터 교통까지 한 번에 알아서 되어있는게 너무 마음에
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. 실시간 인기 여행지 -->
+    <section style="padding-left: 6%;">
+      <div class="d-flex justify-content-between mt-5 mb-4" style="padding-right: 6%;">
+        <h2 class="fw-bold">실시간 인기 여행지 🔥</h2>
+        <a href="#" title="실시간 인기 여행지 전체보기" style="color: #aaa; width: 40px; text-align: center;">
+          <i class="bi bi-chevron-right fs-4"></i>
+        </a>
+      </div>
+      <div class="swiper mySwiper2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide recommend">
+            <div>
+              <img src="../images/busan_01.jpg" alt="이미지">
+            </div>
+            <div style="padding: 10px 5px;">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
+              <span class="title_txt">
+                <i class="bi bi-geo-alt-fill"></i>
+                부산 해운대구 
+                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+              </span>
+            </div>
+          </div>
+          <div class="swiper-slide recommend">
+            <div>
+              <img src="../images/busan_01.jpg" alt="이미지">
+            </div>
+            <div style="padding: 10px 5px;">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
+              <span class="title_txt">
+                <i class="bi bi-geo-alt-fill"></i>
+                부산 해운대구 
+                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+              </span>
+            </div>
+          </div>
+          <div class="swiper-slide recommend">
+            <div>
+              <img src="../images/busan_01.jpg" alt="이미지">
+            </div>
+            <div style="padding: 10px 5px;">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
+              <span class="title_txt">
+                <i class="bi bi-geo-alt-fill"></i>
+                부산 해운대구 
+                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+              </span>
+            </div>
+          </div>
+          <div class="swiper-slide recommend">
+            <div>
+              <img src="../images/busan_01.jpg" alt="이미지">
+            </div>
+            <div style="padding: 10px 5px;">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
+              <span class="title_txt">
+                <i class="bi bi-geo-alt-fill"></i>
+                부산 해운대구 
+                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+              </span>
+            </div>
+          </div>
+          <div class="swiper-slide recommend">
+            <div>
+              <img src="../images/busan_01.jpg" alt="이미지">
+            </div>
+            <div style="padding: 10px 5px;">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
+              <span class="title_txt">
+                <i class="bi bi-geo-alt-fill"></i>
+                부산 해운대구 
+                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+              </span>
+            </div>
+          </div>
+          <div class="swiper-slide recommend">
+            <div>
+              <img src="../images/busan_01.jpg" alt="이미지">
+            </div>
+            <div style="padding: 10px 5px;">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none; width: 60px; display: flex; align-items: flex-start; white-space: nowrap;">
+                  <i class="bi bi-star-fill" style="color: #ffc000; margin-right: 4px;"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
+              <span class="title_txt">
+                <i class="bi bi-geo-alt-fill"></i>
+                부산 해운대구 
+                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+              </span>
+            </div>
+          </div>
 
 
+        </div>
+      </div>
+    
+    </section>
 
-
+    <!-- 9. 내 주변 핫플레이스 -->
+    <section class="padding" id="sec09">
+      <div class="d-flex justify-content-between mt-5 mb-3">
+        <h2 class="fw-bold">
+          내 주변 핫 플레이스 ✨</h2>
+        <a href="#" title="내 주변 핫플레이스 전체보기" style="color: #aaa; width: 40px; text-align: center;">
+          <i class="bi bi-chevron-right fs-4"></i>
+        </a>
+      </div>
+      <!-- 탭 버튼 -->
+      <div class="mb-3">
+        <button class="tab-btn active-tab" data-tab="애견카페">#애견카페</button>
+        <button class="tab-btn" data-tab="강아지공원">#강아지공원</button>
+        <button class="tab-btn" data-tab="애견숙소">#애견숙소</button>
+      </div>
+      <!-- 컨텐츠 -->
+      <div class="container" style="margin: 0;padding: 0; max-width: inherit;">
+        <div class="row">
+          <div class="col-12 col-md-6 mb-4" alt="애견카페">
+            <div class="card">
+              <img src="../images/애견카페 이미지.jpg" alt="애견카페이미지">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4" alt="애견카페">
+            <div class="card">
+              <img src="../images/애견카페 이미지2.jpg" alt="애견카페">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4" alt="애견카페">
+            <div class="card">
+              <img src="../images/애견카페 이미지3.jpg" alt="애견카페">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4" alt="강아지공원">
+            <div class="card">
+              <img src="../images/강아지 공원3.png" alt="강아지공원 이미지">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4" alt="강아지공원">
+            <div class="card">
+              <img src="../images/강아지공원 1.jpg" alt="강아지공원 이미지">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4" alt="강아지공원">
+            <div class="card">
+              <img src="../images/강아지 공원2.jpeg" alt="강아지공원 이미지">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4" alt="애견숙소">
+            <div class="card">
+              <img src="../images/애견숙소1.jpeg" alt="애견숙소 이미지">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4" alt="애견숙소">
+            <div class="card">
+              <img src="../images/애견숙소2.jpg" alt="애견숙소 이미지">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mb-4" alt="애견숙소">
+            <div class="card">
+              <img src="../images/애견숙소3.png" alt="애견숙소 이미지">
+              <div class="card-body">
+                <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
+                <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
+                <span class="card-text" style="float:right">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  내 근처
+                  <span style="font-weight: bold; color: var(--main_color);font-size: 16px;">264m</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- 공통 바텀바삽입 -->
-  <?php include('./bottom.php')?>
+
+  
+  <!-- 푸터 영역 -->
+  <footer class="footer mt-5">
+    <div class="padding">
+      <div class="container">
+        <div class="row">
+          <div class="mt-3 p-0">
+            <img src="../images/logo_1.png" alt="하단로고" height="30px">
+          </div>
+          <div class="col-md-12 p-0 mt-3">
+            <p class="fs-6 fw-bold">고객센터 1234-5678</p>
+            <div class="footer-links d-flex">
+              <a href="#" style="color: #000;">개인정보처리방침</a>
+              <a href="#">이용약관</a>
+              <a href="#">소비자 분쟁해결 기준</a>
+              <a href="#">사업자 정보확인</a>
+              <a href="#">콘텐츠산업진흥법에 의한 표시</a>
+            </div>
+            <p class="mt-3"><strong>(주)떠나개</strong> | 대표: 박수민<br>
+              사업자등록번호: 123-45-67890<br>
+              통신판매업신고번호: 2024-서울 광진-0000<br>
+              이메일: abc@naver.com<br>
+              대표전화: 1234-5678<br>
+              소재지: 서울특별시 광진구 자양로 123 - 45
+            </p>
+            <p>떠나개는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 여행상품의 예약 분쟁 및 거래에 대해 책임지지 않습니다.</p>
+            <p>© 떠나개 All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 공통 바텀바삽입 -->
+    <?php include('./bottom.php')?>
+
+  </footer>
+
+
+
+
+
   <script>
     //해당 페이지에 해당하는 하단 바텀바에 버튼색 생기게
     $(document).ready(function() {
       $('a[title="홈"]').find('i, span').addClass('active');
     });
+
+
+    $(document).ready(function() {
+      var searchInput = $('#main_search');
+      
+      // PHP에서 가져온 mb_name을 JavaScript 변수에 할당
+      var mbName = "<?php echo $mb_name; ?>";
+
+      // mbName 변수가 비어있지 않으면 (즉, 로그인 상태)
+      if (mbName.trim() !== "") {
+        searchInput.attr('placeholder', mbName + '랑 어디로 떠날까?');
+      }
+
+    });
+
+
+
+
+
   </script>
 
 </body>

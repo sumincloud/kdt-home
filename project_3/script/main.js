@@ -27,6 +27,8 @@ $(document).ready(function(){
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    touchRatio: 1,
+    simulateTouch: true,
     breakpoints : { //반응형 설정
       376 : { //376~767일때 (큰 모바일일때 설정)
         slidesPerView : 2.2,
@@ -141,13 +143,30 @@ $(document).ready(function(){
   }
   // 초기 배경 업데이트
   updateBackground();
-
-
-
-
-
-
   }
+
+  //--------핫 플레이스 탭 컨텐츠---------
+  // 초기 상태: 모든 탭 숨기기
+  $('.col-12').hide();
+
+  // 첫 번째 탭(애견카페) 보이기
+  $('.col-12[alt="애견카페"]').show();
+
+  // 탭 버튼 클릭 이벤트 처리
+  $('.tab-btn').click(function() {
+    var tabName = $(this).data('tab');
+    
+    // 모든 탭 버튼의 active 클래스 제거
+    $('.tab-btn').removeClass('active-tab');
+    // 클릭된 버튼에 active 클래스 추가
+    $(this).addClass('active-tab');
+
+    // 모든 탭 숨기기
+    $('.col-12').hide();
+
+    // 선택한 탭 보이기
+    $('.col-12[alt="' + tabName + '"]').show();
+  });
   
 
 

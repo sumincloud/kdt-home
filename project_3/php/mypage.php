@@ -69,7 +69,7 @@
 
     /* 오늘의 혜택 */
     .event{
-      background: #eee;
+      background: rgba(242, 5, 92, 0.05);
       height: 100px;
       border-radius: 10px;
     }
@@ -89,7 +89,34 @@
     <div class="content">
       <div>
         <h2 class="fw-bold fs-3 pt-5 pb-3">마이페이지</h2>
-        <a href="./login.php" class="fw-bold fs-5 d-flex justify-content-between" title="로그인 및 회원가입하기">
+        <?php
+          session_start();
+          if (isset($_SESSION['ss_mb_name'])) {
+            $mb_name = $_SESSION['ss_mb_name'];
+            echo "<div class='fw-bold fs-5 d-flex justify-content-between' title='마이페이지'>";
+            echo "<div>";
+            echo "<span style='color:#F2055C;'>$mb_name 님 환영합니다!</span>";
+            echo "<div class='small text-muted fw-normal mt-1'>다양한 혜택을 누려보세요.</div>";
+            echo "</div>";
+            echo "<div class='d-flex'>";
+            echo "<i class='bi bi-person-circle'></i>";
+            echo "<i class='bi bi-chevron-right'></i>";
+            echo "</div>";
+            echo "</div>";
+          } else {
+            echo "<a href='./login.php' class='fw-bold fs-5 d-flex justify-content-between' title='로그인 및 회원가입하기'>";
+            echo "<div>";
+            echo "<span style='color:#F2055C;'>로그인 및 회원가입하기</span>";
+            echo "<div class='small text-muted fw-normal mt-1'>3초 로그인하고 맞춤 여행지로 떠나개!</div>";
+            echo "</div>";
+            echo "<div class='d-flex'>";
+            echo "<i class='bi bi-person-circle'></i>";
+            echo "<i class='bi bi-chevron-right'></i>";
+            echo "</div>";
+            echo "</a>";
+          }
+        ?>
+        <!-- <a href="./login.php" class="fw-bold fs-5 d-flex justify-content-between" title="로그인 및 회원가입하기">
           <div>
             <span style="color:#F2055C;">로그인 및 회원가입하기</span>
             <div class="small text-muted fw-normal mt-1">3초 로그인하고 맞춤 여행지로 떠나개!</div>
@@ -98,7 +125,7 @@
             <i class="bi bi-person-circle"></i>
             <i class="bi bi-chevron-right"></i>
           </div>
-        </a>
+        </a> -->
       </div>
       <div>
         <div class="d-flex justify-content-between mt-5">
@@ -115,11 +142,11 @@
             <p class="fw-bold mt-1" style="font-size: 14px;">메뉴</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
+            <img alt="" src="../images/이벤트 아이콘.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;">메뉴</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="https://dummyimage.com/50x50" width="50px"/>
+            <img alt="" src="../images/쿠폰 아이콘.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;">메뉴</p>
           </div>
         </div>
@@ -130,17 +157,17 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="ad">
-                <img src="https://dummyimage.com/400x150" alt="광고배너">
+                <img src="../images/제휴배너 이미지_1.jpeg" alt="광고배너">
               </div>
             </div>
             <div class="swiper-slide">
               <div class="ad">
-                <img src="https://dummyimage.com/400x150" alt="광고배너">
+                <img src="../images/제휴배너 이미지_2.jpeg" alt="광고배너">
               </div>
             </div>
             <div class="swiper-slide">
               <div class="ad">
-                <img src="https://dummyimage.com/400x150" alt="광고배너">
+                <img src="../images/제휴배너 이미지_3.jpeg" alt="광고배너">
               </div>
             </div>
           </div>
@@ -164,7 +191,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="d-flex event align-items-center">
-              <img src="https://dummyimage.com/50x50" alt="이미지">
+              <img src="../images/도장 아이콘.png" alt="이미지">
               <div style="margin: 0 15px;">
                 <span>출석체크 하고</span>
                 <span style="display:block; color:#F2055C; font-size:18px;">경품 응모 하기</span>
@@ -173,7 +200,7 @@
           </div>
           <div class="swiper-slide">
             <div class="d-flex event align-items-center">
-              <img src="https://dummyimage.com/50x50" alt="이미지">
+              <img src="../images/도장 아이콘.png" alt="이미지">
               <div style="margin: 0 15px;">
                 <span>출석체크 하고</span>
                 <span style="display:block; color:#F2055C; font-size:18px;">경품 응모 하기</span>
@@ -182,7 +209,7 @@
           </div>
           <div class="swiper-slide">
             <div class="d-flex event align-items-center">
-              <img src="https://dummyimage.com/50x50" alt="이미지">
+              <img src="../images/도장 아이콘.png" alt="이미지">
               <div style="margin: 0 15px;">
                 <span>출석체크 하고</span>
                 <span style="display:block; color:#F2055C; font-size:18px;">경품 응모 하기</span>
@@ -191,7 +218,7 @@
           </div>
           <div class="swiper-slide">
             <div class="d-flex event align-items-center">
-              <img src="https://dummyimage.com/50x50" alt="이미지">
+              <img src="../images/도장 아이콘.png" alt="이미지">
               <div style="margin: 0 15px;">
                 <span>출석체크 하고</span>
                 <span style="display:block; color:#F2055C; font-size:18px;">경품 응모 하기</span>
@@ -200,7 +227,7 @@
           </div>
           <div class="swiper-slide">
             <div class="d-flex event align-items-center">
-              <img src="https://dummyimage.com/50x50" alt="이미지">
+              <img src="../images/도장 아이콘.png" alt="이미지">
               <div style="margin: 0 15px;">
                 <span>출석체크 하고</span>
                 <span style="display:block; color:#F2055C; font-size:18px;">경품 응모 하기</span>
