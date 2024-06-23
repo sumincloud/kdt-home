@@ -786,7 +786,7 @@
           </div>
           <div class="col-12 col-md-6 mb-4" alt="강아지공원">
             <div class="card">
-              <img src="../images/강아지 공원3.png" alt="강아지공원 이미지">
+              <img src="../images/ground_1.jpg" alt="강아지공원 이미지">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
@@ -800,7 +800,7 @@
           </div>
           <div class="col-12 col-md-6 mb-4" alt="강아지공원">
             <div class="card">
-              <img src="../images/강아지공원 1.jpg" alt="강아지공원 이미지">
+              <img src="../images/ground_2.jpeg" alt="강아지공원 이미지">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
@@ -814,7 +814,7 @@
           </div>
           <div class="col-12 col-md-6 mb-4" alt="강아지공원">
             <div class="card">
-              <img src="../images/강아지 공원2.jpeg" alt="강아지공원 이미지">
+              <img src="../images/ground_3.png" alt="강아지공원 이미지">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
