@@ -103,33 +103,33 @@
             <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">부산</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/강릉 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_001.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">강릉</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/인천 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_002.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">인천</p>
           </div>
         </div>
         <div class="d-flex justify-content-between mb-2">
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/경주 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_003.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">경주</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/가평 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_004.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">가평</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/여수 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_005.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">여수</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/이벤트 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_006.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">이벤트</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/쿠폰 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_007.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;text-rendering: optimizeLegibility;">쿠폰</p>
           </div>
         </div>
@@ -744,7 +744,7 @@
         <div class="row">
           <div class="col-12 col-md-6 mb-4" alt="애견카페">
             <div class="card">
-              <img src="../images/애견카페 이미지.jpg" alt="애견카페이미지">
+              <img src="../images/cafe_1.jpg" alt="애견카페이미지">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
@@ -758,7 +758,7 @@
           </div>
           <div class="col-12 col-md-6 mb-4" alt="애견카페">
             <div class="card">
-              <img src="../images/애견카페 이미지2.jpg" alt="애견카페">
+              <img src="../images/cafe_2.jpg" alt="애견카페">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
@@ -772,7 +772,7 @@
           </div>
           <div class="col-12 col-md-6 mb-4" alt="애견카페">
             <div class="card">
-              <img src="../images/애견카페 이미지3.jpg" alt="애견카페">
+              <img src="../images/cafe_3.jpg" alt="애견카페">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
@@ -828,7 +828,7 @@
           </div>
           <div class="col-12 col-md-6 mb-4" alt="애견숙소">
             <div class="card">
-              <img src="../images/애견숙소1.jpeg" alt="애견숙소 이미지">
+              <img src="../images/house_1.jpeg" alt="애견숙소 이미지">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
@@ -842,7 +842,7 @@
           </div>
           <div class="col-12 col-md-6 mb-4" alt="애견숙소">
             <div class="card">
-              <img src="../images/애견숙소2.jpg" alt="애견숙소 이미지">
+              <img src="../images/house_2.jpg" alt="애견숙소 이미지">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>
@@ -856,7 +856,7 @@
           </div>
           <div class="col-12 col-md-6 mb-4" alt="애견숙소">
             <div class="card">
-              <img src="../images/애견숙소3.png" alt="애견숙소 이미지">
+              <img src="../images/house_3.png" alt="애견숙소 이미지">
               <div class="card-body">
                 <h4 class="card-title">[입장료 무료] 댕댕이와 함께 시원하게 힐링타임 즐기러 가자!</h4>
                 <span class="card-text">#강아지많음 #완전시원 #맛도보장</span>

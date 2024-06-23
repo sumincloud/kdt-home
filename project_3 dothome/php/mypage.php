@@ -142,11 +142,11 @@
             <p class="fw-bold mt-1" style="font-size: 14px;">메뉴</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/이벤트 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_006.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;">메뉴</p>
           </div>
           <div class="text-center categori" role="button">
-            <img alt="" src="../images/쿠폰 아이콘.png" width="50px"/>
+            <img alt="" src="../images/icon_007.png" width="50px"/>
             <p class="fw-bold mt-1" style="font-size: 14px;">메뉴</p>
           </div>
         </div>
@@ -157,17 +157,17 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="ad">
-                <img src="../images/제휴배너 이미지_1.jpeg" alt="광고배너">
+                <img src="../images/ad_1.jpeg" alt="광고배너">
               </div>
             </div>
             <div class="swiper-slide">
               <div class="ad">
-                <img src="../images/제휴배너 이미지_2.jpeg" alt="광고배너">
+                <img src="../images/ad_2.jpeg" alt="광고배너">
               </div>
             </div>
             <div class="swiper-slide">
               <div class="ad">
-                <img src="../images/제휴배너 이미지_3.jpeg" alt="광고배너">
+                <img src="../images/ad_3.jpeg" alt="광고배너">
               </div>
             </div>
           </div>
@@ -191,7 +191,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="d-flex event align-items-center">
-              <img src="../images/도장 아이콘.png" alt="이미지">
+              <img src="../images/stamp_1.png" alt="이미지">
               <div style="margin: 0 15px;">
                 <span>출석체크 하고</span>
                 <span style="display:block; color:#F2055C; font-size:18px;">경품 응모 하기</span>
