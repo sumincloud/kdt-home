@@ -351,17 +351,17 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="ad">
-              <img src="../images/제휴배너 이미지_1.jpeg" alt="광고배너">
+              <img src="../images/ad_1.jpeg" alt="광고배너">
             </div>
           </div>
           <div class="swiper-slide">
             <div class="ad">
-              <img src="../images/제휴배너 이미지_2.jpeg" alt="광고배너">
+              <img src="../images/ad_2.jpeg" alt="광고배너">
             </div>
           </div>
           <div class="swiper-slide">
             <div class="ad">
-              <img src="../images/제휴배너 이미지_3.jpeg" alt="광고배너">
+              <img src="../images/ad_3.jpeg" alt="광고배너">
             </div>
           </div>
         </div>
