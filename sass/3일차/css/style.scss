@@ -1,0 +1,116 @@
+// style.scss
+$b_color:#333;
+$f_color01:#f00;
+
+//sns서식
+@mixin sns{
+  font-size:30px;
+  color:$b_color;
+}
+
+$time:0.3s;
+@mixin hover{
+  color:$f_color01;
+  transition:$time;
+}
+.sns{
+  display:flex;
+  width:200px;
+  justify-content: space-around;
+}
+.sns li{
+  @include sns;
+  list-style:none;
+}
+.sns li:hover i{
+  @include hover;
+  transform:translateY(-5px);
+}
+
+//mixin함수에 매개변수 삽입하기
+@mixin divBox($bgcolor1, $border_color1){
+  background:$bgcolor1;
+  border:3px solid $border_color1;
+}
+#box01{
+  @include divBox(#0f0, #f00);
+}
+#box02{
+  @include divBox(#ff0, #00f);
+}
+
+//sns로그인 버튼 서식
+//버튼 공통서식
+@mixin btn{
+  width: 200px;height: 40px;
+  border: 1px solid #ccc;
+  text-align: center;
+  color: #fff;
+}
+.btn{@include btn}
+
+@mixin bgcolor($bgcolor){
+  background:$bgcolor;
+}
+
+//sns별 색상서식
+.btn1{@include bgcolor(#f00)}
+.btn2{@include bgcolor(#0f0)}
+.btn3{ @include bgcolor(#f0dc05);}
+
+// 목록태그에 믹스인 함수 기본값 적용하기
+@mixin border_style($w:1px, $s:solid, $c:#ccc){
+  border:$w $s $c;
+}
+.list01 li{
+  @include border_style;
+}
+.list01 li:nth-child(2){
+  @include border_style(3px, solid, #f00);
+}
+.list01 li:nth-child(3){
+  @include border_style(4px, double, #00f);
+}
+.list01 li:nth-child(4){
+  @include border_style(4px, dotted, #0f0);
+}
+.list01 li:last-child{
+  @include border_style(4px, dashed, rgb(255, 183, 0));
+}
+
+//믹스인 함수를 사용하여 테이블 서식 적용하기
+@mixin border($w:1px, $s:solid, $c:#00f){
+  width: 500px;
+  border: $w, $s, $c;
+}
+
+.calender{
+  border-collapse:collapse;
+  @include border;
+}
+.calender th, .calender td{
+  @include border;
+}
+//캡션서식
+@mixin caption($bg: #ff0){
+  background: $bg;
+  padding: 10px 0px;
+  font-weight: bold;
+}
+caption{@include caption;}
+
+//홀수번째 라인 서식
+@mixin odd_tr($bg:#fddc7a){
+  background: $bg;
+}
+//짝수번째 라인 서식
+@mixin even_tr($bg:#ffefc0){
+  background: $bg;
+}
+
+.calender tr:nth-child(2n+1){
+  @include odd_tr;
+}
+.calender tr:nth-child(2n){
+  @include even_tr;
+}

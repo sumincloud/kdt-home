@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_SASS문법_믹싱기법(mixin)_include기법</title>
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
+</head>
+<body>
+  <h2>02_SASS문법_믹싱기법(mixin)_include기법</h2>
+  <h3>1. $mixin문법</h3>
+  <p>웹사이트 전체에 재사용할 css코드를 정의하는 문</p>
+  <pre>
+    @mixin mixin명{
+      //반복해서 사용할 스타일 서식을 작성한다.
+    }
+  </pre>
+  <h3>2. @include문법</h3>
+  <p>@mixin을 선택자에 포함하는데 사용하는 지시문</p>
+  <pre>
+    선택자{
+      @include mixin명;
+    }
+  </pre>
+
+  <h3 class="title01">h3태그요소를 2개 작성하여 동일한 서식과 다른 서식 적용하기</h3>
+  <h3 class="title02">mixin 서식 적용하기</h3>
+  <p>위 h3태그에 배경색 : 노랑, 글자색 : 빨강,파랑 적용하기</p>
+
+  <p class="p01">믹스인 함수(txt_over)를 사용하여 글자 생략기호 나오게하기</p>
+
+  <h3>3. @mixin을 중첩하여 새로운 @mixin만들기</h3>
+  <pre>
+    @mixin 믹스인명 A{
+      //재사용할 스타일 서식을 작성
+    }
+
+    @mixin 믹스인명 B{
+      //재사용할 스타일 서식을 작성
+    }
+
+    @mixin 믹스인명 C{
+      //@include 믹스인명 A;
+      //@include 믹스인명 B;
+    }
+  </pre>
+  <p>실습1. 문단태그안에 button요소를 2개를 작성하여 각각 다른 버튼 서식적용하기</p>
+  <button class="reset_btn">취소</button>
+  <button class="cart_btn">장바구니 담기</button>
+
+  <p>실습2. 모바일 토글버튼 구현하기</p>
+  <!--css로 토글버튼 구현-->
+  <input type="checkbox" id="toggle">
+  <label for="toggle" class="toggle_btn">
+    <span class="bar bar1">&nbsp;</span>
+    <span class="bar bar2">&nbsp;</span>
+    <span class="bar bar3">&nbsp;</span>
+  </label>
+
+  <br>
+  <!--제이쿼리로 토글버튼 구현-->
+  <div class="toggle">
+    <span class="bar t2"></span>
+    <span class="bar t2"></span>
+    <span class="bar t2"></span>
+  </div>
+
+</body>
+</html>

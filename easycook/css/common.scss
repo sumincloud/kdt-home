@@ -1,0 +1,238 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// 폰트 사이즈
+$fs-xsmall: 0.75rem; // 12px
+$fs-small: 0.875rem; // 14px
+$fs-medium: 1rem; // 16px
+$fs-medium-large: 1.125rem; // 18px
+$fs-large: 1.25rem; // 20px
+$fs-xlarge: 1.5rem; // 24px
+
+// 폰트 두께
+$fw-thin: 100;
+$fw-light: 300;
+$fw-normal: 500;
+$fw-bold: 700;
+
+// 색상
+$red: #EF2F15;
+$yellow: #FFCC18;
+$green: #26A450;
+$darkbrown: #281A12;
+$gray: #D9D9D9;
+$light-gray: #EFEFEF;
+$white: #ffffff;
+$black: #000000;
+
+// 패딩값
+$p_20: 20px;
+
+//마진값
+$m_50: 50px;
+
+
+a{
+  text-decoration: none;
+  color: $black;
+}
+li{
+  list-style: none;
+}
+
+
+body {
+  font-family: 'Pretendard', Arial, Helvetica, sans-serif;
+  text-rendering: geometricPrecision;
+  margin-bottom: 60px; /* 바텀바 높이만큼 띄우기 */
+}
+main{
+  margin-top: 70px; /* 헤더 높이만큼 띄우기 */
+}
+
+// 기본 폰트 크기를 16px로 설정
+html {
+  font-size: 16px;
+}
+
+/* 화면 크기가 375px 미만일 때 기본 폰트 크기를 14px로 조정 */
+// @media (max-width: 374px) {
+//   html {
+//     font-size: 14px;
+//   }
+// }
+
+
+
+//----------------mixin 서식-----------------
+
+//말줄임 (1줄)
+@mixin text-over($line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  white-space: normal;
+}
+
+
+//------------------공통 컴포넌트----------------
+
+// 찜 아이콘
+.cart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  width: 10%;
+  min-width: 30px;
+
+  img{
+    width: 100%;
+  }
+}
+
+// 별점
+.star {
+  text-wrap: nowrap;
+  i {
+    color: $red;
+    opacity: 0.2;
+    
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+//탭 컨텐츠
+.tab {
+  width: 100%;
+  > ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    gap:10px;
+
+    li{
+      width: 100%;
+
+      button{
+        width: 100%;
+        padding: 10px 20px;
+        border: 1px solid $gray;
+        background: $gray;
+        cursor: pointer;
+
+        &.active{
+          background: $white;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .tab_con{
+    border-top: 1px solid $gray;
+    background: $white;
+    
+    div{
+      display: none;
+
+      &.active{
+        display: block;
+      }
+    }
+  }
+}
+
+
+//리스트 목록 스타일
+.list{
+  border-radius: 0;
+  width: 100%;
+  li{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+
+    span:first-child{
+      width: 60px;
+    }
+    span:last-child{
+      opacity: 0;
+      background: $red;
+      color: $white;
+      font-size: $fs-small;
+      width: 20px; height: 20px;
+      line-height: 20px;
+      border-radius: 5px;
+      text-align: center;
+      margin-left: auto; /* N표시 오른쪽 정렬 */
+
+      &.active{
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+//버튼 스타일
+$button-height: 40px;
+$button-gap: 10px;
+
+// 공통 버튼 스타일
+.button {
+  width: 100%;
+  height: $button-height;
+  text-align: center;
+  line-height: $button-height;
+  border: none;
+  border-radius: 5px;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+  &:nth-child(1) {
+    background: $red;
+    color: $white;
+  }
+  &:nth-child(2) {
+    background: $gray;
+    color: $black;
+  }
+}
+
+// 버튼 - 크기 50%
+.btn-box-s {
+  width: 100%;
+  display: flex;
+  gap: $button-gap;
+
+  .btn-s {
+    @extend .button;
+    width: 50%;
+  }
+}
+
+// 버튼 - 크기 100%
+.btn-box-l {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $button-gap;
+
+  .btn-l {
+    @extend .button;
+  }
+}

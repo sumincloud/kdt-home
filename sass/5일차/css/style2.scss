@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+// style2.scss
+$max_width:1180px;
+
+//12개의 그리드 컬럼
+//박스가 가지는 컬럼에 따라 가로크기가 지정되는 함수 작성하기
+@function column($number:1, $all:12){
+  @return $max_width*($number/$all);
+}
+/*
+  function 함수명(a, b){
+    return '매개변수가 있는 함수입니다.';
+  }
+*/
+.wrap{
+  width:$max_width;
+  border:2px solid #000;
+}
+.box01, .box02, .box03{
+  height:100px;margin:10px 0px;
+}
+.box01{width:column();background:#f00;}
+.box02{width:column(6);background:#0f0;}
+.box03{width:column(12);background:#00f;}
+
+// 내장함수로 버튼서식 적용하기
+$mainColor:#e134ad;
+$t_color:#fff;
+.btn{
+  border:none;
+  padding:5px 20px;
+  border-radius:5px;
+  background:$mainColor;
+  color:$t_color;
+  &.btn2{
+    background:lighten($mainColor, 20%);
+  }
+  &.btn3{
+    background:rgba($mainColor, 20%);
+  }
+}
+@function my-lighten($num){
+  @return 0.1*$num;
+}
+.btn4{opacity: my-lighten(6);}
+.btn5{opacity: my-lighten(4);}
+.btn6{opacity: my-lighten(3);}
+.btn7{opacity: my-lighten(2);}
+.btn8{opacity: my-lighten(1);}

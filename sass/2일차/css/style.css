@@ -1,0 +1,108 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
+.title01 {
+  font-family: "Noto Sans KR", "맑은 고딕", arial, sans-serif;
+  font-size: 20px;
+  background: #ffff00;
+  color: #ff0000;
+}
+
+.title02 {
+  font-family: "Noto Sans KR", "맑은 고딕", arial, sans-serif;
+  font-size: 20px;
+  background: #ffff00;
+  color: #0000ff;
+}
+
+.p01 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 350px;
+  border: 1px solid #f00;
+  background: #ffff00;
+}
+
+.reset_btn {
+  font-family: "Noto Sans";
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #cccccc;
+  padding: 0px 10px;
+  width: 170px;
+  height: 56px;
+}
+
+.cart_btn {
+  font-family: "Noto Sans";
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #cccccc;
+  padding: 0px 10px;
+  width: 170px;
+  height: 56px;
+  background: rgb(95, 0, 128);
+  color: #ffffff;
+}
+
+.toggle_btn {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border: 1px solid #cccccc;
+  position: relative;
+}
+
+.toggle {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border: 1px solid #cccccc;
+  position: relative;
+}
+
+.bar {
+  position: absolute;
+  display: inline-block;
+  width: 38px;
+  height: 3px;
+  left: 1px;
+  background: #333333;
+  transition: 0.3s;
+}
+
+.bar1, .toggle > .t2:first-child {
+  top: 5px;
+}
+
+.bar2, .toggle > .t2:nth-child(2) {
+  top: 18px;
+}
+
+.bar3, .toggle > .t2:last-child {
+  bottom: 5px;
+}
+
+#toggle:checked + label > .bar1 {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+#toggle:checked + label > .bar2 {
+  display: none;
+}
+
+#toggle:checked + label > .bar3 {
+  transform: rotate(-45deg) translate(10px, -10px);
+}
+
+.bar1_toggle {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.bar2_toggle {
+  display: none;
+}
+
+.bar3_toggle {
+  transform: rotate(-45deg) translate(10px, -10px);
+}/*# sourceMappingURL=style.css.map */

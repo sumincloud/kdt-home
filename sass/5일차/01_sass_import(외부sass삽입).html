@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_sass_import(외부sass삽입)</title>
+  <link href="./css/import.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h2>01_sass_import(외부sass삽입)</h2>
+  <p>- SASS도 CSS처럼 @import구문을 지원, 다른 SASS파일을 불러온다.</p>
+  <p>- CSS는 @import를 사용할 때마다 HTTP요청을 추가해서 작업하지만 SASS는 CSS로 바로 처리하기 때문에 HTTP호출이 필요하지 않다.</p>
+  <pre>
+    @import 불러올 사스 파일명;
+  </pre>
+  <p>import문법안에서는 sass파일명만 작성하면 된다. sass에서는 당연히 파일명.scss를 가져온다고 가정하기 때문</p>
+
+  <div id="wrap">
+    박스요소에 서식적용하기
+  </div>
+
+</body>
+</html>

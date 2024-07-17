@@ -1,0 +1,37 @@
+@charset "utf-8";
+// style.scss
+
+//변수선언
+$myFont : '맑은 고딕', arial, sans-serif;
+$baseFontColor:#333;
+$baseFontSize:12px;
+$bigFontSize:30px;
+$boxWidht:1280px;
+$boxCenter:0 auto;
+$bgColor:#ffff00;
+$border:1px solid $baseFontColor;
+$t_color:#00f;
+
+body{
+  font-family: $myFont;
+  font-size:$baseFontSize;
+  color:$baseFontColor;
+}
+header {
+  // $t_color:#00f; //지역변수
+}
+header > h1{
+  font-size:$bigFontSize;
+}
+
+header, main, footer{
+  width:$boxWidht;
+  margin:$boxCenter;
+  background:$bgColor;
+  border:$border;
+}
+footer{}
+footer > address{
+  color:$t_color;
+  font-style: normal;
+}

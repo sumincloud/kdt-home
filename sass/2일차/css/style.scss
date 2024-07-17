@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+// 변수선언(변수명:값)
+$bg_color:#ffff00;
+$bg_color_m:rgb(95, 0, 128);
+
+$txt_color_g:#333333;
+$txt_color_w:#ffffff;
+$txt_color1:#ff0000;
+$txt_color2:#0000ff;
+
+$line_color_g:#cccccc;
+
+$f_size1:20px;
+
+@mixin h3txt{
+  font-family: "Noto Sans KR", '맑은 고딕', arial, sans-serif;
+  font-size:$f_size1;
+}
+
+.title01{
+  @include h3txt;
+  background:$bg_color;
+  color:$txt_color1;
+}
+.title02{
+  @include h3txt;
+  background:$bg_color;
+  color:$txt_color2;
+}
+
+// 생략기호(...) 나오는 믹스인 함수
+@mixin txt_over{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.p01{
+  @include txt_over;
+  width:350px;
+  border:1px solid #f00;
+  background:$bg_color;
+}
+
+//1.버튼 글자서식
+@mixin btnFont{
+  font-family: 'Noto Sans';
+  font-weight:bold;
+  font-size: 20px;
+}
+//2.버튼 모양서식
+@mixin btnArea{
+  border:1px solid $line_color_g;
+  padding:0px 10px;
+  width:170px;height:56px;
+}
+//버튼 서식 결합
+@mixin btn{
+  @include btnFont;
+  @include btnArea;
+}
+
+.reset_btn{
+  @include btn;
+}
+.cart_btn{
+  @include btn;
+  background:$bg_color_m;
+  color:$txt_color_w;
+}
+
+// 토글버튼 서식
+@mixin toggle_btn{
+  width:40px;height:40px;
+  display:block;  
+  border:1px solid $line_color_g;
+  position:relative;
+}
+@mixin bar{
+  position:absolute;	display:inline-block;
+	width:38px;height:3px;
+  left:1px;
+	background:$txt_color_g;
+}
+.toggle_btn{
+  @include toggle_btn;
+}
+.toggle{
+  @include toggle_btn;
+}
+
+$time : 0.3s;
+
+.bar{
+  @include bar;
+  transition:$time;
+}
+.bar1, .toggle > .t2:first-child{top:5px;}
+.bar2, .toggle > .t2:nth-child(2){top:18px;}
+.bar3, .toggle > .t2:last-child{bottom:5px;}
+
+#toggle:checked + label > .bar1{
+  transform:rotate(45deg) translate(10px, 10px);
+}
+#toggle:checked + label > .bar2{display:none;}
+#toggle:checked + label > .bar3{
+  transform:rotate(-45deg) translate(10px, -10px);
+}
+
+// 2번 방법
+.bar1_toggle{transform:rotate(45deg) translate(10px, 10px);}
+.bar2_toggle{display:none;}
+.bar3_toggle{transform:rotate(-45deg) translate(10px, -10px);}

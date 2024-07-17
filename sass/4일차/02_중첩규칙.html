@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_중첩규칙</title>
+  <link href="./css/style2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h2>02_중첩규칙</h2>
+  <p>중첩이란? 겹치거나 포개기</p>
+  <ul>
+    <li>선택자를 중첩하는 '규칙 중첩'</li>
+    <li>속성을 중첩하는 '속성 중첩'</li>
+  </ul>
+  <p>sass의 nesting(중첩)은 태그가 자손 혹은 후손인 경우 { }코드블록으로 중첩하여 작성하는 기법.</p>
+  <p>css의 경우 부모요소를 반복해서 작성하는데 sass중첩규칙은 부모요소를 반복해서 작성안해도 됨.</p>
+  <p>복잡한 구조 형태의 작업에 있어서 상위 선택자를 많이 상속해야 할 경우 css규칙을 간단하게 작성을 할 수 있으며, 그 구조를 한눈에 볼 수 있게 모듈화 할 수 있다.</p>
+  <p>중첩은 무분별하게 사용하는 것은 권장하지 않음.</p>
+  <p>상위선택자를 3Depth이상 사용할 경우 재활용이 제한적이다.(별도의 클래스로 만들것)</p>
+
+
+  <div class="list">
+    <h3>SASS의 중첩규칙과 속성</h3>
+    <ul>
+        <li><a href="#" title="">텍스트 링크</a></li>
+        <li><a href="#" title="">텍스트 링크</a></li>
+        <li><a href="#" title="">텍스트 링크</a></li>
+    </ul>
+  </div>
+
+  <h3>탭콘텐츠</h3>
+  <div class="tab_con">
+    <ul>
+      <li><a href="img1.jpg" class="active">코스타 크루즈</a></li>
+      <li><a href="img2.jpg">로얄캐리비안 크루즈</a></li>
+      <li><a href="img3.jpg">지상낙원 미동부</a></li>
+      <li><a href="img4.jpg">아라비안 나이트</a></li>
+    </ul>
+    <img src="./images/img1.jpg" alt="" id="photo">
+  </div>
+  <style>
+    .tab_con{
+      width: 100%;
+      position: relative;
+    }
+    .tab_con ul{
+      position: absolute;
+      right: 0;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      width: 200px;
+      height: 100%;
+      margin: 0; padding: 0;
+    }
+    .tab_con ul li{
+      list-style: none;
+      margin: 20px 0;
+    }
+    .tab_con ul li a{
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .tab_con ul li a.active{
+      color: #ff0;
+    }
+    .tab_con img{
+      width: 100%;
+    }
+  </style>
+
+  <script src="./script/tab_content.js"></script>
+</body>
+</html>

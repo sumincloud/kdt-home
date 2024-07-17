@@ -1,0 +1,24 @@
+.list h3 {
+  color: #333;
+  padding: 14px;
+  margin: 10px;
+  border: 1px solid #f00;
+}
+.list ul {
+  margin: 0px;
+  padding: 0px;
+}
+.list li {
+  list-style: none;
+  margin: 10px 0px;
+  padding: 0px;
+  border: 1px solid #ccc;
+  line-height: 40px;
+}
+.list a {
+  color: #333;
+  text-decoration: none;
+}
+.list a:hover {
+  background: #ff0;
+}/*# sourceMappingURL=style2.css.map */

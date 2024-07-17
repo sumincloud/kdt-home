@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_sass함수문법(반복문과 배열)</title>
+  <link rel="stylesheet" href="./css/style2.css">
+</head>
+<body>
+  <h2>02_sass함수문법(반복문과 배열)</h2>
+  <ul>
+    <li>for</li>
+    <li>while</li>
+    <li>do while</li>
+  </ul>
+
+  <h3>1. @for문</h3>
+  <p>@for 키워드는 스타일을 반복적으로 출력하는데 사용됩니다.</p>
+  <p>javascript의 for문과 유사합니다.</p>
+
+  <pre>
+    문법)
+    trough:종료 만큼 반복(종료값도 포함)
+
+    @for $변수 from 시작 through 종료 {
+      //반복할 내용
+    }
+
+    문법2)
+    //to : 종료 전까지 반복(종료값 미포함)
+
+    @for $변수 from 시작 to 종료{
+      //반복할 내용
+    }
+  </pre>
+  <p>$변수 => #{변수}</p>
+  <p>#{변수}는 코드 어디든지 변수값을 사용할 수 있다.</p>
+  <pre>
+    적용 예)
+    $img: 'example.png';
+    $imgPath: unquote('./img/#{$img}');
+    unquote는 따옴표를 제거하고 저장해줌
+
+    .selector {
+      background-image: url(#{$imgPath});
+    }
+  </pre>
+
+  <h3>@for문 실습 - through</h3>
+  <p>div태그가 가로폭을 50px - 250px까지 각각 처리되는 예제</p>
+  <div>박스1</div>
+  <div>박스2</div>
+  <div>박스3</div>
+  <div>박스4</div>
+  <div>박스5</div>
+
+  <h3>2. Lists와 Maps데이터</h3>
+  <p>Lists와 Maps는 데이터를 여러개 나열해서 담는 것을 의미한다.</p>
+  <p>자바스크립트에서 학습한 배열과 객체라고 이해하면 된다.</p>
+
+  <h4>1-Lists</h4>
+  <pre>
+    <!-- 자바스크립트 배열
+    let array = new Array(값1, 값2, 값3, 값4 ...);
+    let array = ['사과', '배', '오렌지', ...]; -->
+
+    문법)
+    $변수명 : 값1, 값2, 값3, 값4 ...;
+    $변수명 : (값2, 값2, 값3, 값4 ...);
+    $변수명 : 값1 값2 값3 값4 ...
+  </pre>
+
+  <article>
+    <h2>제목</h2>
+    <h2>제목</h2>
+    <h2>제목</h2>
+  </article>
+
+  <h4>2-Maps</h4>
+  <pre>
+    문법)
+    $변수명 : ('key명':값, 'key명':값, 'key명':값);
+    Lists와는 다르게 괄호를 반드시 써야함.
+  </pre>
+  <section>
+    <h2>제목</h2>
+    <h2>제목</h2>
+    <h2>제목</h2>
+    <h3>제목</h3>
+    <h4>제목</h4>
+  </section>
+
+  <h4>3-While</h4>
+  <p>@while도 반복되는 구문입니다.</p>
+  <p>잘못된 조건을 작성시 무한루프에 빠지기 때문에 권장하지 않음</p>
+
+  <pre>
+    @while 조건식{
+      //반복할 내용
+    }
+  </pre>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_sass소개와 문법</title>
+  <style>
+    :root{
+      /* color */
+      --t_color1:#333;
+      --t_color2:#00f;
+    }
+    h2{
+      color:var(--t_color1);
+    }
+  </style>
+  <link href="./css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h2>01_sass소개와 문법</h2>
+  <p class="p01">SASS - sass(Syntactically Awesome StyleSheets) 소개</p>
+  <p class="bgcolor">CSS pre-processor(전처리기)로서 css반복을 줄여서 시간을 절약할 수 있도록 해주는 css언어의 확장 언어이다.</p>
+  <p>장점 - 변수 및 조건문 등의 새로운 문법을 통해 css를 구조화하여 작업할 수 있다.</p>
+  <p>단점 - 코드가 지저분해질 수 있고, 코드가 많아질수록 유지보수가 어렵다.</p>
+  <p>프로그램 설치는 sass공식사이트에서 gui, cli방식의 프로그램들 중에서 자신이 편한 프로그램을 다운받아 설치한다.</p>
+  <p>vs code에서는 별도로 확장프로그램(live sass compiler)을 지원하기 때문에 왼쪽 메뉴 아이콘' extensition'을 클릭하여 설치하여 사용한다.</p>
+  <p>sass파일의 확장자는 .sass, .scss 2가지가 존재하며 문법의 차이가 있고 거의 같다고 보면 된다. css문법과 거의 비슷하여 주로 scss파일을 사용하며, 브라우저에서는 css만 인식하기 때문에 .scss파일을 .css로 변환하는 작업을 거쳐야(컴파일) 사용할 수 있다.</p>
+</body>
+</html>

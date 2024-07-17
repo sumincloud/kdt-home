@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+div{
+  height: 50px;
+  margin-bottom: 10px;
+  background: pink;
+}
+
+//마지막 값 포함
+@for $i from 1 through 5{
+  div:nth-of-type(#{$i}){
+    width:50px*$i;  //50px씩 증가
+  }
+}
+
+//마지막 값 미포함
+// @for $i from 1 to 5{
+//   div:nth-of-type(#{$i}){
+//     width:50px*$i;
+//   }
+// }
+
+
+
+//Lists 배열 서식 적용하기
+$color : red, blue, yellow;
+// $color : red blue yellow;
+// $color : (red, blue, yellow);
+
+article{
+  h2:nth-child(1){color:nth($color,1)};
+  h2:nth-child(2){color:nth($color,2)};
+  h2:nth-child(3){color:nth($color,3)};
+}
+
+//Maps배경
+$fontSize : ('large':30px, 'medium':16px, 'small':10px);
+
+//nesting기법
+section{
+  h2:nth-child(1){
+    font-size: map-get($fontSize, 'large');
+    color: nth($color, 1);
+  }
+  h3:nth-of-type(1){
+    font-size: map-get($fontSize, 'medium');
+  }
+  h4:nth-of-type(1){
+    font-size: map-get($fontSize, 'small');
+  }
+}
