@@ -89,7 +89,7 @@
           </a>
         </li>
         <li>
-          <a href="#" title="마이페이지">
+          <a href="./mypage.php" title="마이페이지">
             <i class="bi bi-person"></i>
             <span>마이페이지</span>
           </a>

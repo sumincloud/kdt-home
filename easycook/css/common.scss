@@ -19,6 +19,7 @@ $fs-xlarge: 1.5rem; // 24px
 $fw-thin: 100;
 $fw-light: 300;
 $fw-normal: 500;
+$fw-semi-bold: 600;
 $fw-bold: 700;
 
 // 색상
@@ -93,6 +94,7 @@ html {
   cursor: pointer;
   width: 10%;
   min-width: 30px;
+  max-width: 50px;
 
   img{
     width: 100%;
@@ -117,11 +119,9 @@ html {
   width: 100%;
   > ul{
     list-style: none;
-    padding: 0;
     display: flex;
     justify-content: space-between;
     gap:10px;
-
     li{
       width: 100%;
 
@@ -140,10 +140,8 @@ html {
     }
   }
   .tab_con{
-    border-top: 1px solid $gray;
     background: $white;
-    
-    div{
+    > div{
       display: none;
 
       &.active{
@@ -222,6 +220,12 @@ $button-gap: 10px;
   .btn-s {
     @extend .button;
     width: 50%;
+
+    &.line {
+      border: 1px solid $red;
+      background: $white;
+      color: $red; // 추가로 텍스트 색상 변경
+    }
   }
 }
 
@@ -234,5 +238,83 @@ $button-gap: 10px;
 
   .btn-l {
     @extend .button;
+    
+    &.line {
+      border: 1px solid $red;
+      background: $white;
+      color: $red; // 추가로 텍스트 색상 변경
+    }
+  }
+}
+
+// 상품목록 카드 스타일
+.card-list {
+  width: 100%;
+  li{
+    border: 1px solid $gray;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    padding: 10px;
+  }
+  li > div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    > a{
+      display: block;
+      width: 30%;
+      aspect-ratio: 1 / 1; /* 1:1 비율 설정 */
+      max-width: 120px;
+    }
+    img {
+      width: 100%;
+      object-fit: cover; 
+      border-radius: 5px;
+    }
+
+    > div {
+      width: 70%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+
+      h2 {
+        margin: 0;
+        font-size: $fs-medium;
+        font-weight: $fw-bold;
+      }
+
+      > p {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        span {
+          font-size: $fs-small;
+          font-weight: 400;
+          color: $red;
+        }
+      }
+      > div{
+        margin-top: auto; /* 바닥정렬 */
+        display: flex;
+        gap: 10px;
+
+        > span {
+          font-size: $fs-small;
+          font-weight: 400;
+        }
+
+      }
+    }
+    .cart{
+      margin-top: auto;
+      top: unset;
+      right: 0;
+      bottom: 0;
+      width: 30px;
+      img{
+        width: 100%;
+      }
+    }
   }
 }

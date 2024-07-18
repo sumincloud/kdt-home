@@ -36,6 +36,7 @@ html {
   cursor: pointer;
   width: 10%;
   min-width: 30px;
+  max-width: 50px;
 }
 .cart img {
   width: 100%;
@@ -57,7 +58,6 @@ html {
 }
 .tab > ul {
   list-style: none;
-  padding: 0;
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -77,13 +77,12 @@ html {
   border-bottom: none;
 }
 .tab .tab_con {
-  border-top: 1px solid #D9D9D9;
   background: #ffffff;
 }
-.tab .tab_con div {
+.tab .tab_con > div {
   display: none;
 }
-.tab .tab_con div.active {
+.tab .tab_con > div.active {
   display: block;
 }
 
@@ -145,10 +144,87 @@ html {
 .btn-box-s .btn-s {
   width: 50%;
 }
+.btn-box-s .btn-s.line {
+  border: 1px solid #EF2F15;
+  background: #ffffff;
+  color: #EF2F15;
+}
 
 .btn-box-l {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+.btn-box-l .btn-l.line {
+  border: 1px solid #EF2F15;
+  background: #ffffff;
+  color: #EF2F15;
+}
+
+.card-list {
+  width: 100%;
+}
+.card-list li {
+  border: 1px solid #D9D9D9;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  padding: 10px;
+}
+.card-list li > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+.card-list li > div:first-of-type > a {
+  display: block;
+  width: 30%;
+  aspect-ratio: 1/1; /* 1:1 비율 설정 */
+  max-width: 120px;
+}
+.card-list li > div:first-of-type img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+.card-list li > div:first-of-type > div {
+  width: 70%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.card-list li > div:first-of-type > div h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.card-list li > div:first-of-type > div > p {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.card-list li > div:first-of-type > div > p span {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #EF2F15;
+}
+.card-list li > div:first-of-type > div > div {
+  margin-top: auto; /* 바닥정렬 */
+  display: flex;
+  gap: 10px;
+}
+.card-list li > div:first-of-type > div > div > span {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.card-list li > div:first-of-type .cart {
+  margin-top: auto;
+  top: unset;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+}
+.card-list li > div:first-of-type .cart img {
+  width: 100%;
 }/*# sourceMappingURL=common.css.map */

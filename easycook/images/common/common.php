@@ -1,3 +1,8 @@
+<?php
+  include('../../php/include/dbconn.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,7 +16,7 @@
   <!-- 부트스트랩 js연결하기 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- 초기화서식 연결 -->
-  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../../css/reset.css">
   <!-- 공통서식 연결 -->
   <link rel="stylesheet" href="../../css/common.css">
   <!-- 제이쿼리 -->
@@ -22,7 +27,7 @@
       flex-wrap: wrap;
       gap: 50px;
     }
-    section{
+    .cart_box{
       background: #ccc;
       border: 1px solid #aaa;
       width: 100px;height: 100px;
@@ -32,16 +37,16 @@
 </head>
 <body>
   <!-- 찜버튼 -->
-  <section>
+  <div class="cart_box">
     <div class="cart">
       <img src="./heart_w.png" alt="찜버튼">
     </div>
-  </section>
-  <section>
+  </div class="cart_box">
+  <div class="cart_box">
     <div class="cart">
       <img src="./heart_r.png" alt="찜버튼">
     </div>
-  </section>
+  </div class="cart_box">
 
   <!-- 별점 -->
   <div class="star">
@@ -182,7 +187,7 @@
 
   <!-- 버튼 형식 -->
   <div class="btn-box-s">
-    <button class="btn-s">Small Button</button>
+    <button class="btn-s line">Small Button</button>
     <button class="btn-s">Small Button</button>
   </div>
   <div class="btn-box-l">
@@ -190,5 +195,62 @@
     <button class="btn-l">Large Button</button>
   </div>
 
+
+  <!-- 상품목록 카드 스타일 -->
+  <ul class="card-list">
+    <!-- 태그에 맞는 강의 가져와서 리스트로 넣기 -->
+    <?php
+      $sql = "select * from academy_list where category2='자격증'";
+      $result = mysqli_query($conn, $sql);
+
+      while ($row = mysqli_fetch_array($result)) {
+    ?>
+    <li>
+      <div>
+        <!-- 강의 썸네일 이미지 -->
+        <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+          <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
+        </a>
+        <!-- 강의 이름 -->
+        <div>
+          <h2>
+            <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+              <?php echo $row['name']; ?>
+            </a>
+          </h2>
+
+          <!-- 강의 # 태그 -->
+          <p>
+            <span>#<?php echo $row['category2']; ?></span>
+            <span>#<?php echo $row['category1']; ?></span>
+            <span>#<?php echo $row['category3']; ?></span>
+          </p>
+
+          <!-- 기간 / 강사이름 -->
+          <div>
+            <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
+            <span><?php echo $row['teacher']; ?></span>
+          </div>
+        </div>
+        <!-- 찜버튼 -->
+        <div class="cart">
+          <img src="./heart_w.png" alt="찜버튼">
+        </div>
+      </div>
+
+      <!-- 버튼이 들어가는 경우에만 삽입 -->
+      <div>
+        <div class="btn-box-s mt-4">
+          <button class="btn-s line">Small Button</button>
+          <button class="btn-s line">Small Button</button>
+        </div>
+        <div class="btn-box-l mt-2 mb-2">
+          <button class="btn-l">Large Button</button>
+        </div>
+      </div>
+
+    </li>
+    <?php } ?>
+  </ul>
 </body>
 </html>

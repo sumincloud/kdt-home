@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include('./php/include/dbconn.php');
 ?>
 <html lang="ko">
