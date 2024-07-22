@@ -1,8 +1,22 @@
+<?php
+  session_start();
+  include('./php/include/dbconn.php');
+
+  $id = $_SESSION['id'];
+  
+  // 세션id의 회원정보 불러오기
+  $sql = "SELECT * FROM register WHERE id = '$id'";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+
+  $teacher_code = $row['teacher_code'];
+?>
+
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이지쿡 회원가입</title>
+  <title>이지쿡 회원정보 수정</title>
   <!-- 공통 헤드정보 삽입 -->
   <?php include('./php/include/head.php'); ?>
   <style>
@@ -75,7 +89,7 @@
 
   <main>
     <section>
-      <h2>회원가입</h2>
+      <h2>회원정보 수정</h2>
       <form id="register_form" action="./php/register_input.php" method="post" enctype="multipart/form-data">
         <!-- 프로필 사진 -->
         <div class="mt-4 mb-2">
@@ -84,23 +98,33 @@
             <input type="file" class="form-control" id="profile" name="profile">
             <label class="input-group-text" for="profile">
               <i class="bi bi-camera"></i>
-              <img id="preview" src="#" alt="프로필 미리보기" style="max-width: 80px; display: none;">
+              <img id="preview" src="./uploads/profile/<?php echo $row['profile']; ?>" alt="프로필 미리보기" style="max-width: 80px; display: block;">
             </label>
           </div>
         </div>
         <!-- 이름 -->
         <div class="mt-4 mb-2">
           <label for="name" class="form-label">이름<span style="color:var(--red);">*</span></label>
-          <input type="text" class="form-control" id="name" name="name">
+          <input type="text" class="form-control" id="name" name="name" value="<?php echo $row['name']; ?>">
           <div class="invalid-feedback">
             이름을 입력해주세요.
           </div>
         </div>
+        <!-- 강사코드 -->
+        <?php if (!empty($teacher_code)): ?>
+          <div class="mt-4 mb-2">
+            <label for="teacher_code" class="form-label">강사코드<span style="color:var(--red);">*</span></label>
+            <input type="text" class="form-control text-secondary" id="teacher_code" name="teacher_code" value="<?php echo $row['teacher_code']; ?>" disabled>
+            <div class="invalid-feedback">
+              올바른 강사코드를 입력해주세요.
+            </div>
+          </div>
+        <?php endif; ?>
         <!-- 아이디 -->
         <div class="mt-4 mb-2">
           <label for="id" class="form-label">아이디<span style="color:var(--red);">*</span></label>
           <small class="d-block text-secondary mb-2" style="font-size: 14px;">4자 이상 20자 이내의 영문,숫자 사용</small>
-          <input type="text" class="form-control" id="id" name="id">
+          <input type="text" class="form-control text-secondary" id="id" name="id" value="<?php echo $row['id']; ?>" disabled>
           <div class="invalid-feedback">
             영문, 숫자를 조합하여 4~20자로 작성해주세요.
           </div>
@@ -125,7 +149,7 @@
         <!-- 전화번호 -->
         <div class="mt-4 mb-2">
           <label for="phone" class="form-label">전화번호<span style="color:var(--red);">*</span></label>
-          <input type="text" class="form-control" id="phone" name="phone">
+          <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $row['phone']; ?>">
           <div class="invalid-feedback">
             전화번호를 올바르게 입력해주세요.
           </div>
@@ -133,42 +157,7 @@
         <!-- 이메일 -->
         <div class="mt-4 mb-2">
           <label for="email" class="form-label">이메일 (선택입력)</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com">
-        </div>
-        <!-- 이용약관 -->
-        <div class="mt-4 mb-2">
-          <div class="form-check mt-3">
-            <input type="checkbox" id="ch_btn" name="ch_btn" class="form-check-input"  style="cursor:pointer;">
-            <label for="ch_btn" class="form-check-label" style="cursor:pointer;">회원가입 약관에 동의합니다.</label>
-          </div>
-          <div class="accordion mt-2">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#agree_1">
-                  이용약관
-                </button>
-              </h2>
-              <div id="agree_1" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                  여기 이용약관 내용이 들어갑니다.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion mt-2">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#agree_2">
-                  개인정보 수집 이용 동의
-                </button>
-              </h2>
-              <div id="agree_2" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                  여기 개인정보 수집 이용 동의내용이 들어갑니다.
-                </div>
-              </div>
-            </div>
-          </div>
+          <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" value="<?php echo $row['email']; ?>">
         </div>
 
       </div>
@@ -179,8 +168,8 @@
 
         <!-- 버튼 형식 -->
         <div class="btn-box-l" style="margin-top: 50px;">
-          <button type="submit" class="btn-l">가입완료</button>
-          <button type="button" class="btn-l" onclick="location.href='./index.php'">가입취소</button>
+          <button type="submit" class="btn-l">수정완료</button>
+          <button type="button" class="btn-l" onclick="location.href='./mypage.php'">수정취소</button>
         </div>
 
 
@@ -327,12 +316,6 @@
             $this.removeClass('is-invalid');
           }
         });
-
-        // 이용약관 체크 여부 확인
-        if (!$('#ch_btn').is(':checked')) {
-          alert('이용약관에 동의해야 합니다.');
-          isFormValid = false;
-        }
 
         if (isFormValid) {
           this.submit(); // 유효성 검사 통과 시 폼 제출

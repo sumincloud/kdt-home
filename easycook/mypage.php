@@ -171,7 +171,7 @@
           echo "
           <div class='mytitle'>
             <div>
-              <img id='profile_img' src='./images/common/profile.png' alt='프로필이미지'>
+              <img id='profile_img' src='./uploads/profile/profile.png' alt='프로필이미지'>
               <div>
                 <p class='fs-5'>로그인이 필요합니다.</p>
               </div>
@@ -373,8 +373,8 @@
       // 프로필 타이틀 클릭 이벤트
       $('.mytitle').click(function() {
         if (sessionId) {
-          // 로그인된 경우 회원수정페이지로
-          window.location.href = './register_edit.php';
+          // 로그인된 경우 비밀번호 확인 페이지로
+          window.location.href = './register_edit_password.php';
         } else {
           // 로그인 안된경우 로그인페이지로
           window.location.href = './login.php';
